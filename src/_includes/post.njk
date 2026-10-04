@@ -1,0 +1,16 @@
+---
+layout: base.njk
+---
+<article class="post single">
+  <header class="post-head">
+    <time datetime="{{ date | isoDate }}">{{ date | prettyDate }}</time>
+    {% if title %}<h1>{{ title }}</h1>{% endif %}
+  </header>
+  {% if image %}
+  <figure class="photo">
+    <img src="{{ image }}" alt="{{ alt or '' }}">
+  </figure>
+  {% endif %}
+  <div class="body">{{ content | safe }}</div>
+  <p class="back"><a href="/">&lt; back to feed</a></p>
+</article>
