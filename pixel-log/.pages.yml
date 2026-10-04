@@ -1,0 +1,54 @@
+# Config for Pages CMS (https://pagescms.org)
+# This is what gives you a "new post" form on your phone and computer.
+# Sign in to Pages CMS with GitHub, pick this repository, and you get an editor.
+
+media:
+  input: src/images
+  output: /images
+  extensions: [jpg, jpeg, png, gif, webp, svg]
+
+content:
+  - name: posts
+    label: Posts
+    type: collection
+    path: src/posts
+    filename: "{year}-{month}-{day}-{primary}.md"
+    view:
+      fields: [date, title]
+      primary: title
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: date
+        label: Date
+        type: date
+        options:
+          time: true
+        default: now
+      - name: title
+        label: Title (optional)
+        type: string
+      - name: image
+        label: Photo (optional)
+        type: image
+      - name: alt
+        label: Photo description (optional, for accessibility and search)
+        type: string
+      - name: body
+        label: Text
+        type: rich-text
+        options:
+          format: markdown
+
+  - name: about
+    label: About page
+    type: file
+    path: src/about.md
+    fields:
+      - name: body
+        label: Text
+        type: rich-text
+        options:
+          format: markdown
